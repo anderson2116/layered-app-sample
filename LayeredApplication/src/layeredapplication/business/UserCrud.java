@@ -7,6 +7,7 @@ package layeredapplication.business;
 
 import layeredapplication.data.DAOFactory;
 import layeredapplication.data.UserDAO;
+import layeredapplication.data.VehicleDAO;
 import layeredapplication.tools.Encryptor;
 
 /**
@@ -45,9 +46,15 @@ public class UserCrud {
         
         
         System.out.println("UserCrud.createUser: "+id+", "+desc);
+        
         DAOFactory daoFactory = DAOFactory.getDAOFactory(Math.random() > 0.5 ? DAOFactory.ORACLE : DAOFactory.FILE);
+        
         UserDAO userDAO = daoFactory.getUserDAO();
         userDAO.createUser(id, desc);
+        
+        
+        VehicleDAO vehicleDAO = daoFactory.getVehicleDAO();
+        vehicleDAO.createVehicle(id, desc);
     }
 
 }

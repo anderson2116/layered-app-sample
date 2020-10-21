@@ -12,10 +12,16 @@ package layeredapplication.data;
 public class OracleDAOFactory extends  DAOFactory{
     
     public UserDAO userDAO = new OracleUserDAO();
+    public VehicleDAO vehicleDAO = new OracleVehicleDAO();
 
     @Override
     public UserDAO getUserDAO() {
         return userDAO;
+    }
+
+    @Override
+    public VehicleDAO getVehicleDAO() {
+        return vehicleDAO;
     }
     
 }
